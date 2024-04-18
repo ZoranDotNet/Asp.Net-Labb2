@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Filter Teachers";
+}
+
+<div class="container">
+    <form asp-action="TeacherResults" asp-controller="Administration" method="post">
+        <div class="w-50 p-3 mx-auto">
+            <h2 class="text-center mb-4">Select a course to filter Teachers</h2>
+            <div class="form-group mb-3">
+                <select class="form-control" name="id" asp-items="ViewBag.CourseId">
+                    <option value="" hidden>--Select Course--</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary rounded-3" type="submit">Search</button>
+        </div>
+    </form>
+</div>

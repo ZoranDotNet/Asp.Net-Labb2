@@ -1,0 +1,41 @@
+﻿
+
+@{
+    ViewData["Title"] = "Teacher Results";
+}
+<div>
+    <div class="mb-5">
+        <h3 class="">Teachers in @ViewBag.Course</h3>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Teacher</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Teacher</td>
+                        <td>@item.Course</td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2" class="table-danger">No Teachers asigned to this course</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="mt-4">
+        <a class="btn btn-primary" asp-controller="Administration" asp-action="FilterTeachers">New Search</a>
+    </div>
+</div>

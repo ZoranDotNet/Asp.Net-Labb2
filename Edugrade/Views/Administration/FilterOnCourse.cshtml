@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Filtered Students";
+}
+
+<div class="container">
+    <div class="mb-5">
+        <h3 class="">Students in @ViewBag.Course</h3>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>School Class</th>
+                <th>Course</th>
+                <th>Teacher</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Student</td>
+                        <td>@item.SchoolClass</td>
+                        <td>@item.Course</td>
+                        <td>@item.Teacher</td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="table-danger">No match for your search</td>
+                </tr>
+            }
+        </tbody>
+     </table>
+
+        <div class="mt-4">
+            <a class="btn btn-primary" asp-controller="Administration" asp-action="Index">New Search</a>
+        </div>
+</div>

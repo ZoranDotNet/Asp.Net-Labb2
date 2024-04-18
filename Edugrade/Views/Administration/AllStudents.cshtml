@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "All Students";
+}
+
+<section>
+    <div class="mb-4">
+        <h3 class="">Students with Teachers</h3>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="">@item.Student</td>
+                        <td class="">
+                            @foreach (var teacher in item.Teachers)
+                            {
+                                <span>@teacher<br/> </span>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2" class="table-danger">No students in the system</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</section>

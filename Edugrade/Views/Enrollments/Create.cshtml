@@ -1,0 +1,46 @@
+﻿@model Edugrade.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Enrollment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FkStudentId" class="control-label">Student</label>
+                <select asp-for="FkStudentId" class ="form-control" asp-items="ViewBag.FkStudentId">
+                    <option value="" hidden>--Select Student--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkCourseId" class="control-label"> Course</label>
+                <select asp-for="FkCourseId" class="form-control" asp-items="ViewBag.FkCourseId">
+                    <option value="" hidden>--Select Course--</option>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="FkTeacherId" class="control-label">Teacher</label>
+                <select asp-for="FkTeacherId" class="form-control" asp-items="ViewBag.FkTeacherId">
+                    <option value="" hidden>--Select Teacher--</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
